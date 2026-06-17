@@ -66,31 +66,18 @@ The Streamlit dashboard exposes 8 visualisations across 3 tabs:
 flight-pipeline/
 
 ├── docker-compose.yml       # All services configuration
-
 ├── .env                     # Credentials (not committed)
-
 ├── sql/
-
 │   └── init.sql             # Database schema & views
-
 ├── etl/
-
 │   ├── extract.py           # Batch ETL (OpenSky + AviationStack)
-
 │   └── simulate_delays.py   # Delay simulator
-
 ├── streaming/
-
 │   ├── producer.py          # Kafka producer
-
 │   └── consumer.py          # Kafka consumer
-
 ├── dags/
-
 │   └── flight_dag.py        # Airflow DAG
-
 └── dashboard/
-
 └── app.py               # Streamlit dashboard
 
 
@@ -102,4 +89,4 @@ flight-pipeline/
 
 - **Dashboard:** http://localhost:8501
 - **Airflow:** http://localhost:8081
-- **GitHub:** https://github.com/[your-username]/flight-pipeline
+- **GitHub:** https://github.com/smaaartt/flight-pipeline
