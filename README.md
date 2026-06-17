@@ -4,7 +4,7 @@ A complete end-to-end data pipeline for real-time analysis of European air traff
 
 **Course:** ETL & Pipeline Orchestration | ESILV MSc A4 | MACSIN4A2125  
 **Author:** Ekta Mistry 
-**Professor:** Murali Krishna MOPIDEVI
+
 
 ---
 
@@ -66,18 +66,31 @@ The Streamlit dashboard exposes 8 visualisations across 3 tabs:
 flight-pipeline/
 
 ├── docker-compose.yml       # All services configuration
+
 ├── .env                     # Credentials (not committed)
+
 ├── sql/
+
 │   └── init.sql             # Database schema & views
+
 ├── etl/
+
 │   ├── extract.py           # Batch ETL (OpenSky + AviationStack)
+
 │   └── simulate_delays.py   # Delay simulator
+
 ├── streaming/
+
 │   ├── producer.py          # Kafka producer
+
 │   └── consumer.py          # Kafka consumer
+
 ├── dags/
+
 │   └── flight_dag.py        # Airflow DAG
+
 └── dashboard/
+
 └── app.py               # Streamlit dashboard
 
 
