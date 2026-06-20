@@ -65,7 +65,7 @@ with tab1:
                longitude, latitude, altitude, velocity
         FROM raw_flights
         WHERE longitude IS NOT NULL AND latitude IS NOT NULL
-          AND ingested_at > NOW() - INTERVAL '10 minutes'
+        AND ingested_at > NOW() - INTERVAL '24 hours'
         LIMIT 3000
     """)
     if not df_map.empty:
@@ -100,7 +100,7 @@ with tab1:
                 END AS airport
             FROM raw_flights
             WHERE on_ground = true
-              AND ingested_at > NOW() - INTERVAL '30 minutes'
+            AND ingested_at > NOW() - INTERVAL '24 hours'
         ) sub
         WHERE airport IS NOT NULL
         GROUP BY airport
@@ -112,7 +112,7 @@ with tab1:
             color="planes_on_ground",
             color_continuous_scale="Reds",
             labels={"airport": "AAirport", "planes_on_ground": "Planes on Ground"},
-            title="Number of Planes on Ground by Airport (Last 30 Minutes)"
+            title="Number of Planes on Ground by Airport (Last 24 Hours)"
         )
         st.plotly_chart(fig2, use_container_width=True)
     else:

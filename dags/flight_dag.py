@@ -16,9 +16,9 @@ default_args = {
 
 def run_extract():
     import extract
-    states = extract.fetch_flights()
-    rows   = extract.transform(states)
-    extract.load(rows)
+    states = extract.fetch_opensky()
+    rows   = extract.transform_opensky(states)
+    extract.load_opensky(rows)
     return f"{len(rows)} vols chargés"
 
 def run_aviationstack():

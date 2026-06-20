@@ -29,7 +29,7 @@ PARAMS = {
 # Aéroports européens majeurs à surveiller
 AIRPORTS = ["CDG", "LHR", "FRA", "AMS", "MAD", "FCO", "BCN", "MUC"]
 
-# ─── OpenSky ──────────────────────────────────────────────────────────────
+# OpenSky 
 def fetch_opensky():
     print(f"[{datetime.now()}] Appel OpenSky API...")
     try:
@@ -68,14 +68,14 @@ def load_opensky(rows):
             (icao24, callsign, origin_country, longitude, latitude,
              altitude, on_ground, velocity)
         VALUES %s
-        ON CONFLICT DO NOTHING
+        ON CONFLICT DO NOTHING # eviter les doublons si le même vol est déjà présent
     """, rows)
     conn.commit()
     cur.close()
     conn.close()
     print(f"  → {len(rows)} vols chargés en base")
 
-# ─── AviationStack ────────────────────────────────────────────────────────
+# ─AviationStack 
 def fetch_aviationstack():
     print(f"[{datetime.now()}] Appel AviationStack API...")
     all_rows = []
@@ -136,7 +136,7 @@ def load_aviationstack(rows):
     conn.close()
     print(f"  → {len(rows)} statuts de vols chargés en base")
 
-# ─── Main ─────────────────────────────────────────────────────────────────
+# Main
 if __name__ == "__main__":
     call_count = 0
     while True:
